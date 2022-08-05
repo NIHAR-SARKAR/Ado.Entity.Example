@@ -1,0 +1,9 @@
+/packages
+/AdoEntityTest/obj
+/AdoEntityTest/bin
+/.vs
+/AdoEntityTest/.vs/AdoEntityTest/v15/.suo
+/AdoEntityTest/.vs/AdoEntityTest/v15/Server/sqlite3/db.lock
+/AdoEntityTest/.vs/AdoEntityTest/v15/Server/sqlite3/storage.ide
+/AdoEntityTest/.vs/AdoEntityTest/v15/Server/sqlite3/storage.ide-shm
+/AdoEntityTest/.vs/AdoEntityTest/v15/Server/sqlite3/storage.ide-wal
