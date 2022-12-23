@@ -6,6 +6,7 @@ using Ado.Entity;
 
 namespace AdoEntityTest.Entity
 {
+    [Table("Users")]
     class Users:AdoBase
     {
         [Primary]
@@ -14,6 +15,7 @@ namespace AdoEntityTest.Entity
         public bool IsActive { get; set; }
         public double Salary { get; set; }
         public int Age { get; set; }
-        public DateTime DOB { get; set; }
+        [Column("DOB")]
+        public DateTime DateOfBirth { get; set; }
     }
 }

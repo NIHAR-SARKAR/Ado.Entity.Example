@@ -11,11 +11,10 @@ namespace AdoEntityTest
    
     class DbConnection
     {
-        string connectionString = "Data Source=DESKTOP-I6BQDAR\\SQLEXPRESS;Initial Catalog=AdoEntityTest;Integrated Security=True";
         private IConnection connection;
         public DbConnection()
         {
-            connection = new Connection(connectionString);
+            connection = new Connection(Util.ConnectionString);
             
             
         }
@@ -27,12 +26,12 @@ namespace AdoEntityTest
         {
             Users user = new Users
             {
-                Id=11,
-                Name="Nihar M",
+                Id=19,
+                Name="ger M",
                 IsActive=true,
-                Salary=15767.28,
-                Age=29,
-                DOB=DateTime.Now.AddYears(-29)
+                Salary=1167.28,
+                Age=28,
+                DateOfBirth=DateTime.Now.AddYears(-29)
 
             };
             return connection.AddEntry<Users>(user);
@@ -41,12 +40,12 @@ namespace AdoEntityTest
         {
             Users user = new Users
             {
-                Id = 12,
+                Id = 16,
                 Name = "Sarkar",
                 IsActive = true,
                 Salary = 19867.28,
                 Age = 29,
-                DOB = DateTime.Now.AddYears(-29)
+                DateOfBirth = DateTime.Now.AddYears(-29)
 
             };
             List<Users> userList = new List<Users>();
@@ -58,6 +57,7 @@ namespace AdoEntityTest
             var data = connection.GetDataByQuery<Users>("select * from Users");
             var user=data.FirstOrDefault();
             user.IsActive = false;
+            user.DateOfBirth = DateTime.Now;
             var result=connection.UpdateEntry<Users>(user);
         }
         internal void UpdateUserList()
@@ -65,6 +65,12 @@ namespace AdoEntityTest
             var data = connection.GetDataByQuery<Users>("select * from Users");
             data.LastOrDefault().IsActive = false;
             var result = connection.UpdateEntry<Users>(data);
+        }
+        internal void DeleteUser()
+        {
+            var data = connection.GetDataByQuery<Users>("select * from Users");
+            var user = data.LastOrDefault();
+            var result = connection.DeleteEntry<Users>(user);
         }
     }
 }

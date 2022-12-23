@@ -11,8 +11,8 @@ namespace AdoEntityTest
         static void Main(string[] args)
         {
             DbConnection con = new DbConnection();
-            var result=con.AddUser();
-            Console.WriteLine($"DB connection Done {result}");
+            con.DeleteUser();
+            Console.WriteLine($"DB connection Done ");
             Console.Read();
         }
     }
